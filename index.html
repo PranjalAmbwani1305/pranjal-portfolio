@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pranjal Ambwani — AI & ML Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pranjal Ambwani — AI & ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --bg:#050b12;--bg2:#070e18;--card:rgba(12,22,38,0.85);
   --border:rgba(0,220,190,0.12);--border2:rgba(0,220,190,0.3);
-  --accent:#00dcc0;--accent2:#00b8ff;--accent3:#7c6bff;
+  --accent:#00dcc0;--accent2:#00b8ff;
   --text:#dde8f4;--muted:#6b82a0;--muted2:#a0b4cc;
   --ff:'Syne',sans-serif;--fm:'JetBrains Mono',monospace;--fo:'Orbitron',sans-serif;
 }
 html{scroll-behavior:smooth;}
 body{font-family:var(--ff);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none;}
+*{cursor:none!important;}
 ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:3px;}
-*{cursor:none !important;}
 #bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
 .scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0%;z-index:9999;box-shadow:0 0 8px var(--accent);}
 .cur-dot{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
 .cur-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0.5;transition:all 0.15s ease;}
 .cur-ring.hov{width:52px;height:52px;opacity:0.2;background:rgba(0,220,192,0.05);}
-.glass-card{background:var(--card);border:1px solid var(--border);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+.glass-card{background:var(--card);border:1px solid var(--border);backdrop-filter:blur(16px);}
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;padding:0 6%;background:rgba(5,11,18,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .nav-logo{font-family:var(--fo);font-size:1.1rem;color:var(--accent);font-weight:700;margin-right:auto;letter-spacing:0.1em;}
 .nav-logo .dot{color:var(--accent2);}
@@ -54,7 +52,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;padding:13px 28px;background:var(--accent);color:var(--bg);border:none;cursor:pointer;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:all 0.25s;}
 .btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,220,192,0.35);}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:0.75rem;letter-spacing:0.08em;padding:13px 28px;background:transparent;color:var(--text);border:1px solid var(--border2);cursor:pointer;text-decoration:none;transition:all 0.25s;}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:0.75rem;letter-spacing:0.08em;padding:13px 28px;background:transparent;color:var(--text);border:1px solid var(--border2);text-decoration:none;transition:all 0.25s;}
 .btn-ghost:hover{background:rgba(0,220,192,0.07);color:var(--accent);border-color:var(--accent);}
 .hero-metrics{display:flex;align-items:center;}
 .metric{text-align:center;padding:0 28px;}
@@ -71,9 +69,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 @keyframes orbit2{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
 @keyframes orbit3{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 .orbit-icon{position:absolute;width:32px;height:32px;top:50%;left:50%;border-radius:50%;background:var(--card);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;transform:rotate(calc(-1 * var(--angle))) translate(calc(var(--r) - 16px),-16px);}
-.ring-1 .orbit-icon{--r:70px;}
-.ring-2 .orbit-icon{--r:120px;}
-.ring-3 .orbit-icon{--r:170px;}
+.ring-1 .orbit-icon{--r:70px;}.ring-2 .orbit-icon{--r:120px;}.ring-3 .orbit-icon{--r:170px;}
 .orbit-icon img{width:18px;height:18px;object-fit:contain;}
 .orbit-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,rgba(0,220,192,0.2),rgba(0,184,255,0.2));border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--fo);font-size:1.1rem;font-weight:700;color:var(--accent);}
 .center-glow{position:absolute;inset:-15px;border-radius:50%;background:radial-gradient(circle,rgba(0,220,192,0.15),transparent 70%);animation:cp 3s ease-in-out infinite;}
@@ -91,9 +87,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .reveal.in{opacity:1;transform:none;}
 .reveal-delay{transition-delay:0.15s;}
+/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
 .about-text p{font-size:0.97rem;color:var(--muted2);line-height:1.82;margin-bottom:16px;}
-.about-lead{font-size:1.1rem !important;color:var(--text) !important;font-weight:500;}
+.about-lead{font-size:1.1rem!important;color:var(--text)!important;font-weight:500;}
 .highlight{color:var(--accent);font-weight:600;}
 .about-details{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
 .detail-item{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:0.75rem;color:var(--muted2);padding:10px 14px;background:rgba(0,220,192,0.04);border:1px solid var(--border);}
@@ -104,35 +101,37 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .t-title{font-family:var(--fm);font-size:0.68rem;color:var(--muted);margin-left:auto;}
 .terminal-body{padding:20px;}
 .t-line{font-family:var(--fm);font-size:0.8rem;line-height:1.8;color:var(--muted2);}
-.t-cmd{color:var(--accent);}.t-text{color:var(--text);}.t-out{color:var(--muted2);padding-left:16px;}.t-green{color:#22c55e !important;}
+.t-cmd{color:var(--accent);}.t-text{color:var(--text);}.t-out{color:var(--muted2);padding-left:16px;}.t-green{color:#22c55e!important;}
 .t-blink .cursor{animation:blink 1s infinite;color:var(--accent);}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
 .skill-card{padding:18px;transition:all 0.25s;cursor:default;}
 .skill-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,220,192,0.1);}
-.skill-card-top,.skill-info{display:flex;align-items:center;}
-.skill-card-top{gap:12px;margin-bottom:14px;}
-.skill-info{flex-direction:column;align-items:flex-start;}
+.skill-card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
 .skill-icon{font-size:1.6rem;}
-.skill-name{display:block;font-size:0.9rem;font-weight:700;color:var(--text);}
+.skill-info{display:flex;flex-direction:column;}
+.skill-name{font-size:0.9rem;font-weight:700;color:var(--text);}
 .skill-level{font-family:var(--fm);font-size:0.62rem;color:var(--accent);letter-spacing:0.08em;}
 .skill-bar{height:3px;background:rgba(255,255,255,0.06);overflow:hidden;border-radius:2px;}
 .skill-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);}
+/* TIMELINE */
 .timeline{display:flex;flex-direction:column;gap:0;padding-left:32px;position:relative;}
 .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent),var(--accent2) 60%,transparent);}
 .timeline-item{position:relative;margin-bottom:32px;}
-.timeline-marker{position:relative;}
 .marker-dot{position:absolute;left:-38px;top:24px;width:13px;height:13px;background:var(--accent);border-radius:50%;box-shadow:0 0 16px rgba(0,220,192,0.5);}
-.marker-line{display:none;}
 .timeline-card{padding:26px 28px;transition:all 0.25s;}
 .timeline-card:hover{border-color:var(--border2);transform:translateX(6px);}
 .exp-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:16px;}
 .exp-title{font-size:1.1rem;font-weight:700;color:var(--text);}
 .exp-company{font-family:var(--fm);font-size:0.75rem;color:var(--accent);margin-top:3px;}
-.exp-badge{font-family:var(--fm);font-size:0.65rem;color:var(--muted);padding:4px 12px;border:1px solid var(--border);white-space:nowrap;}
-.exp-desc{font-size:0.88rem;color:var(--muted2);line-height:1.75;margin-bottom:16px;}
+.exp-date{font-family:var(--fm);font-size:0.65rem;color:var(--muted);padding:4px 12px;border:1px solid var(--border);white-space:nowrap;}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.exp-ul li{font-size:0.85rem;color:var(--muted2);padding-left:18px;position:relative;line-height:1.65;}
+.exp-ul li::before{content:'▹';position:absolute;left:0;color:var(--accent);font-size:0.7rem;top:3px;}
 .exp-tags{display:flex;gap:7px;flex-wrap:wrap;}
 .exp-tag{font-family:var(--fm);font-size:0.6rem;padding:4px 11px;border:1px solid var(--border);color:var(--muted2);}
+/* PROJECTS */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
 .project-card{padding:26px;position:relative;overflow:hidden;transition:all 0.28s;}
 .project-card:hover{border-color:var(--border2);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.45);}
@@ -149,6 +148,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .project-desc{font-size:0.83rem;color:var(--muted2);line-height:1.7;margin-bottom:16px;}
 .project-stack{display:flex;gap:7px;flex-wrap:wrap;}
 .project-stack span{font-family:var(--fm);font-size:0.6rem;padding:3px 10px;border:1px solid var(--border);color:var(--muted);}
+/* CERTS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+.cert-card{padding:16px 18px;display:flex;align-items:center;gap:14px;transition:all 0.2s;}
+.cert-card:hover{border-color:var(--border2);transform:translateX(4px);}
+.cert-ico{font-size:1.4rem;flex-shrink:0;width:38px;text-align:center;}
+.cert-org{font-family:var(--fm);font-size:0.6rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px;}
+.cert-name{font-size:0.82rem;font-weight:600;color:var(--text);line-height:1.3;}
+/* GITHUB */
 .github-profile-bar{padding:24px 28px;display:flex;align-items:center;gap:24px;margin-bottom:28px;}
 .gh-avatar-wrap{position:relative;flex-shrink:0;}
 .gh-avatar{width:64px;height:64px;border-radius:50%;border:2px solid var(--accent);}
@@ -171,6 +178,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .repo-stars{font-family:var(--fm);font-size:0.68rem;color:var(--muted2);}
 .repo-skeleton{height:110px;background:linear-gradient(90deg,var(--card) 0%,rgba(0,220,192,0.04) 50%,var(--card) 100%);background-size:200% 100%;animation:shimmer 1.5s infinite;border:1px solid var(--border);}
 @keyframes shimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+/* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
 .contact-lead{font-size:1.15rem;color:var(--text);font-weight:600;line-height:1.5;margin-bottom:14px;}
 .contact-text p{font-size:0.9rem;color:var(--muted2);line-height:1.78;margin-bottom:20px;}
@@ -185,43 +193,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .form-group{position:relative;margin-bottom:18px;}
 .form-group input,.form-group textarea{width:100%;background:rgba(0,0,0,0.25);border:1px solid var(--border);color:var(--text);font-family:var(--ff);font-size:0.9rem;padding:12px 14px;outline:none;transition:border-color 0.2s;resize:none;}
 .form-group input:focus,.form-group textarea:focus{border-color:var(--accent);}
-.form-group label{display:none;}
 .form-group input::placeholder,.form-group textarea::placeholder{color:var(--muted);}
 .w-full{width:100%;justify-content:center;}
 .form-status{margin-top:10px;font-family:var(--fm);font-size:0.75rem;color:var(--accent);text-align:center;}
-.footer{padding:32px 6%;border-top:1px solid var(--border);text-align:center;font-family:var(--fm);font-size:0.72rem;color:var(--muted);position:relative;z-index:1;}
+footer{padding:32px 6%;border-top:1px solid var(--border);text-align:center;font-family:var(--fm);font-size:0.72rem;color:var(--muted);position:relative;z-index:1;}
 .footer-sub{margin-top:5px;opacity:0.6;}
+/* CHATBOT */
 #chatbot-widget{position:fixed;bottom:28px;left:28px;z-index:900;}
-#chat-toggle{width:54px;height:54px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;cursor:pointer;color:var(--bg);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 30px rgba(0,220,192,0.4);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));transition:all 0.25s;animation:fabGlow 3s ease-in-out infinite;position:relative;}
+#chat-toggle{width:54px;height:54px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:var(--bg);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 30px rgba(0,220,192,0.4);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));transition:all 0.25s;animation:fabGlow 3s ease-in-out infinite;position:relative;}
 @keyframes fabGlow{0%,100%{box-shadow:0 6px 30px rgba(0,220,192,0.4);}50%{box-shadow:0 6px 50px rgba(0,220,192,0.65);}}
 #chat-toggle:hover{transform:scale(1.1);}
 .fab-notif{position:absolute;top:-2px;right:-2px;width:13px;height:13px;background:#22c55e;border-radius:50%;border:2px solid var(--bg);animation:pulse 2s infinite;}
-#chat-window{position:absolute;bottom:70px;left:0;width:360px;border-radius:10px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,0.7);}
+#chat-window{position:absolute;bottom:70px;left:0;width:370px;border-radius:10px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,0.7);}
 #chat-window.open{display:flex;animation:chatIn 0.25s ease;}
 @keyframes chatIn{from{opacity:0;transform:translateY(12px) scale(0.97);}to{opacity:1;transform:none;}}
-.chat-header{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(0,0,0,0.35);border-bottom:1px solid var(--border);}
+.chat-header{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(0,0,0,0.35);border-bottom:1px solid var(--border);flex-shrink:0;}
 .chat-avatar{width:34px;height:34px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:0.75rem;font-weight:700;color:var(--bg);}
-.chat-header strong{font-size:0.88rem;color:var(--text);}
+.chat-header-info{}
+.chat-header strong{font-size:0.88rem;color:var(--text);display:block;}
 .chat-header p{font-family:var(--fm);font-size:0.62rem;color:var(--accent);}
-#chat-close{margin-left:auto;background:none;border:none;color:var(--muted);font-size:1rem;cursor:pointer;}
-#chat-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;max-height:280px;min-height:200px;}
-.chat-msg{max-width:88%;}
+#chat-close{margin-left:auto;background:none;border:none;color:var(--muted);font-size:1rem;transition:color 0.2s;}
+#chat-close:hover{color:var(--text);}
+#chat-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;max-height:300px;min-height:200px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+.chat-msg{max-width:90%;}
 .chat-msg.bot{align-self:flex-start;}
 .chat-msg.user{align-self:flex-end;}
-.chat-msg span{display:block;padding:9px 13px;font-size:0.83rem;line-height:1.55;border-radius:8px;}
+.chat-msg span{display:block;padding:9px 13px;font-size:0.83rem;line-height:1.6;border-radius:8px;}
 .chat-msg.bot span{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:2px 8px 8px 8px;color:var(--text);}
 .chat-msg.user span{background:rgba(0,220,192,0.12);border:1px solid var(--border2);border-radius:8px 2px 8px 8px;color:var(--text);}
 .typing-dots{display:flex;gap:4px;padding:2px 0;}
 .td{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:tda 1.2s infinite;}
 .td:nth-child(2){animation-delay:0.2s;}.td:nth-child(3){animation-delay:0.4s;}
 @keyframes tda{0%,80%,100%{opacity:0.3;transform:scale(0.8);}40%{opacity:1;transform:scale(1.2);}}
-.chat-input-row{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--border);background:rgba(0,0,0,0.2);}
-#chat-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text);font-size:0.83rem;padding:8px 12px;outline:none;border-radius:4px;}
+.chat-input-row{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--border);flex-shrink:0;background:rgba(0,0,0,0.2);}
+#chat-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text);font-size:0.83rem;padding:8px 12px;outline:none;border-radius:4px;font-family:var(--ff);}
 #chat-input:focus{border-color:var(--accent);}
 #chat-input::placeholder{color:var(--muted);}
-#chat-send{background:var(--accent);color:var(--bg);border:none;padding:8px 14px;font-size:1rem;font-weight:700;cursor:pointer;border-radius:4px;}
-.chat-suggestions{display:flex;gap:6px;padding:8px 14px;border-top:1px solid var(--border);flex-wrap:wrap;background:rgba(0,0,0,0.2);}
-.suggestion{font-family:var(--fm);font-size:0.6rem;padding:4px 10px;border:1px solid var(--border);color:var(--muted2);background:none;cursor:pointer;transition:all 0.18s;}
+#chat-send{background:var(--accent);color:var(--bg);border:none;padding:8px 14px;font-size:1rem;font-weight:700;border-radius:4px;}
+#chat-send:hover{background:#fff;}
+.chat-suggestions{display:flex;gap:6px;padding:8px 14px;border-top:1px solid var(--border);flex-wrap:wrap;background:rgba(0,0,0,0.15);}
+.suggestion{font-family:var(--fm);font-size:0.6rem;padding:4px 10px;border:1px solid var(--border);color:var(--muted2);background:none;transition:all 0.18s;white-space:nowrap;}
 .suggestion:hover{border-color:var(--accent);color:var(--accent);}
 @media(max-width:900px){.hero-visual{display:none;}.about-grid,.contact-grid{grid-template-columns:1fr;}.nav-links{display:none;}#chat-window{width:calc(100vw - 40px);}}
 </style>
@@ -230,11 +241,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 <div class="scroll-progress" id="scrollBar"></div>
 <div class="cur-dot" id="curDot"></div>
 <div class="cur-ring" id="curRing"></div>
-
-<!-- ─── CANVAS BACKGROUND ──────────────────────────────── -->
 <canvas id="bg-canvas"></canvas>
 
-<!-- ─── NAV ───────────────────────────────────────────── -->
 <nav id="navbar">
   <div class="nav-logo">PA<span class="dot">.</span></div>
   <ul class="nav-links">
@@ -242,34 +250,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#certs">Certifications</a></li>
     <li><a href="#github">GitHub</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-status"><span class="pulse-dot"></span>Open to Work</div>
 </nav>
 
-<!-- ─── HERO ───────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-grid-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      <span>AI Engineer · India</span>
-    </div>
+    <div class="hero-badge"><span class="badge-dot"></span><span>AI/ML Engineer · Mumbai, India</span></div>
     <h1 class="hero-name">
       <span class="line-1">Pranjal</span>
       <span class="line-2 gradient-text">Ambwani</span>
     </h1>
-    <p class="hero-title">AI &amp; Machine Learning Engineer</p>
+    <p class="hero-title">AI & Machine Learning Engineer | GenAI · NLP · RAG · LLMs</p>
     <div class="hero-tags">
-      <span class="tag">GenAI</span>
-      <span class="tag">NLP</span>
-      <span class="tag">RAG</span>
-      <span class="tag">Transformers</span>
-      <span class="tag">LLMs</span>
+      <span class="tag">GenAI</span><span class="tag">NLP</span><span class="tag">RAG</span><span class="tag">Transformers</span><span class="tag">LLMs</span><span class="tag">Python</span>
     </div>
     <div class="hero-cta">
-      <a href="#projects" class="btn-primary">View Projects <span class="arrow">→</span></a>
+      <a href="#projects" class="btn-primary">View Projects →</a>
       <a href="#contact" class="btn-ghost">Get In Touch</a>
     </div>
     <div class="hero-metrics">
@@ -277,7 +278,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
       <div class="metric-divider"></div>
       <div class="metric"><span class="metric-num" data-target="2">0</span><span class="metric-label">Internships</span></div>
       <div class="metric-divider"></div>
-      <div class="metric"><span class="metric-num" data-target="11">0</span><span class="metric-label">Technologies</span></div>
+      <div class="metric"><span class="metric-num" data-target="9">0</span><span class="metric-label">Certifications</span></div>
     </div>
   </div>
   <div class="hero-visual">
@@ -293,325 +294,203 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
       <div class="orbit-icon" style="--angle:180deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"></div>
       <div class="orbit-icon" style="--angle:300deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
     </div>
-    <div class="orbit-center">
-      <div class="center-glow"></div>
-      <span>AI</span>
-    </div>
+    <div class="orbit-center"><div class="center-glow"></div><span>AI</span></div>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
-<!-- ─── ABOUT ──────────────────────────────────────────── -->
+<!-- ABOUT -->
 <section id="about" class="section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <h2 class="section-title">About Me</h2>
-    </div>
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">About Me</h2></div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p class="about-lead">I'm an <span class="highlight">AI & ML Engineer</span> focused on building intelligent systems that solve real-world problems at scale.</p>
-        <p>My expertise spans Generative AI, Natural Language Processing, and Retrieval-Augmented Generation pipelines. I've worked with cutting-edge language models, vector databases, and modern MLOps tooling to ship production-grade AI applications.</p>
-        <p>Currently gaining hands-on experience through internships at leading firms while continuously exploring the frontiers of LLMs, fine-tuning, and multi-modal AI.</p>
+        <p class="about-lead">I'm an <span class="highlight">AI & ML Engineer</span> focused on building intelligent systems that solve real-world problems — from RAG pipelines to LLM-powered applications.</p>
+        <p>I'm currently pursuing M.Tech in Artificial Intelligence at NMIMS Mumbai (76.86%). I enjoy learning by building — turning ideas into working AI products rather than staying in theory. My work spans Generative AI, NLP automation, document intelligence, and predictive analytics.</p>
+        <p>I've interned at <span class="highlight">Ernst & Young (EY)</span> where I built sales forecasting systems and analytics dashboards, and at <span class="highlight">BeyonData Solutions</span> where I designed end-to-end RAG pipelines and GenAI document intelligence apps.</p>
         <div class="about-details">
-          <div class="detail-item"><span class="detail-icon">🎓</span><span>AI & ML Engineering</span></div>
-          <div class="detail-item"><span class="detail-icon">📍</span><span>India</span></div>
-          <div class="detail-item"><span class="detail-icon">💼</span><span>Open to Opportunities</span></div>
-          <div class="detail-item"><span class="detail-icon">🔬</span><span>Research-driven Builder</span></div>
+          <div class="detail-item"><span>🎓</span><span>M.Tech AI · NMIMS Mumbai</span></div>
+          <div class="detail-item"><span>📍</span><span>Mumbai, India</span></div>
+          <div class="detail-item"><span>💼</span><span>Open · Full-time & Internship</span></div>
+          <div class="detail-item"><span>🌐</span><span>English · Hindi · Gujarati</span></div>
+          <div class="detail-item"><span>🏙️</span><span>Ahmedabad · Mumbai · Pune · Bangalore</span></div>
+          <div class="detail-item"><span>✈️</span><span>Willing to Relocate</span></div>
         </div>
       </div>
-      <div class="about-card reveal reveal-delay">
-        <div class="glass-card terminal-card">
-          <div class="terminal-header">
-            <span class="t-dot red"></span>
-            <span class="t-dot yellow"></span>
-            <span class="t-dot green"></span>
-            <span class="t-title">pranjal@ai:~$</span>
-          </div>
-          <div class="terminal-body">
-            <p class="t-line"><span class="t-cmd">$ </span><span class="t-text">whoami</span></p>
-            <p class="t-line t-out">Pranjal Ambwani — AI Engineer</p>
-            <p class="t-line"><span class="t-cmd">$ </span><span class="t-text">cat interests.txt</span></p>
-            <p class="t-line t-out">GenAI • NLP • RAG • Transformers</p>
-            <p class="t-line t-out">LLMs • Vector Search • MLOps</p>
-            <p class="t-line"><span class="t-cmd">$ </span><span class="t-text">python --version</span></p>
-            <p class="t-line t-out">Python 3.11.0 (preferred)</p>
-            <p class="t-line"><span class="t-cmd">$ </span><span class="t-text">echo $STATUS</span></p>
-            <p class="t-line t-out t-green">Open to Work ✓</p>
-            <p class="t-line t-blink"><span class="t-cmd">$ </span><span class="cursor">▌</span></p>
-          </div>
+      <div class="glass-card terminal-card reveal reveal-delay">
+        <div class="terminal-header">
+          <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+          <span class="t-title">pranjal@ai:~$</span>
+        </div>
+        <div class="terminal-body">
+          <p class="t-line"><span class="t-cmd">$ </span><span class="t-text">whoami</span></p>
+          <p class="t-line t-out">Pranjal Ambwani — AI/ML Engineer</p>
+          <p class="t-line"><span class="t-cmd">$ </span><span class="t-text">cat interests.txt</span></p>
+          <p class="t-line t-out">GenAI · NLP · RAG · LLMs · MLOps</p>
+          <p class="t-line"><span class="t-cmd">$ </span><span class="t-text">cat education.txt</span></p>
+          <p class="t-line t-out">M.Tech AI · NMIMS Mumbai · 76.86%</p>
+          <p class="t-line t-out">B.E CE · LDRP Gandhinagar · 74.40%</p>
+          <p class="t-line"><span class="t-cmd">$ </span><span class="t-text">echo $STATUS</span></p>
+          <p class="t-line t-out t-green">Open to Work ✓ Willing to Relocate ✓</p>
+          <p class="t-line t-blink"><span class="t-cmd">$ </span><span class="cursor">▌</span></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── SKILLS ─────────────────────────────────────────── -->
+<!-- SKILLS -->
 <section id="skills" class="section section-alt">
   <div class="container">
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Skills &amp; Stack</h2>
-    </div>
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Skills & Stack</h2></div>
     <div class="skills-grid">
-      <div class="skill-card glass-card reveal" data-skill="Python" data-level="95">
-        <div class="skill-icon">🐍</div>
-        <div class="skill-info">
-          <span class="skill-name">Python</span>
-          <span class="skill-level">Expert</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:95%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="Machine Learning" data-level="90">
-        <div class="skill-icon">🤖</div>
-        <div class="skill-info">
-          <span class="skill-name">Machine Learning</span>
-          <span class="skill-level">Advanced</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="Deep Learning" data-level="85">
-        <div class="skill-icon">🧠</div>
-        <div class="skill-info">
-          <span class="skill-name">Deep Learning</span>
-          <span class="skill-level">Advanced</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="LLMs" data-level="88">
-        <div class="skill-icon">💬</div>
-        <div class="skill-info">
-          <span class="skill-name">LLMs</span>
-          <span class="skill-level">Advanced</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:88%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="RAG" data-level="87">
-        <div class="skill-icon">🔍</div>
-        <div class="skill-info">
-          <span class="skill-name">RAG Pipelines</span>
-          <span class="skill-level">Advanced</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:87%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="LangChain" data-level="85">
-        <div class="skill-icon">⛓️</div>
-        <div class="skill-info">
-          <span class="skill-name">LangChain</span>
-          <span class="skill-level">Advanced</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="HuggingFace" data-level="83">
-        <div class="skill-icon">🤗</div>
-        <div class="skill-info">
-          <span class="skill-name">HuggingFace</span>
-          <span class="skill-level">Advanced</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:83%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="Pinecone" data-level="80">
-        <div class="skill-icon">🌲</div>
-        <div class="skill-info">
-          <span class="skill-name">Pinecone</span>
-          <span class="skill-level">Proficient</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="FastAPI" data-level="82">
-        <div class="skill-icon">⚡</div>
-        <div class="skill-info">
-          <span class="skill-name">FastAPI</span>
-          <span class="skill-level">Proficient</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:82%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="Streamlit" data-level="88">
-        <div class="skill-icon">📊</div>
-        <div class="skill-info">
-          <span class="skill-name">Streamlit</span>
-          <span class="skill-level">Advanced</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:88%"></div></div>
-      </div>
-      <div class="skill-card glass-card reveal" data-skill="Docker" data-level="75">
-        <div class="skill-icon">🐳</div>
-        <div class="skill-info">
-          <span class="skill-name">Docker</span>
-          <span class="skill-level">Proficient</span>
-        </div>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:75%"></div></div>
-      </div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">🐍</div><div class="skill-info"><span class="skill-name">Python</span><span class="skill-level">Expert</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="95"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">💬</div><div class="skill-info"><span class="skill-name">LLMs</span><span class="skill-level">Advanced</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="88"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">🔍</div><div class="skill-info"><span class="skill-name">RAG Pipelines</span><span class="skill-level">Advanced</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="87"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">🤗</div><div class="skill-info"><span class="skill-name">HuggingFace</span><span class="skill-level">Advanced</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">⛓️</div><div class="skill-info"><span class="skill-name">LangChain</span><span class="skill-level">Advanced</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">🌲</div><div class="skill-info"><span class="skill-name">Pinecone</span><span class="skill-level">Proficient</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="82"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">🤖</div><div class="skill-info"><span class="skill-name">Machine Learning</span><span class="skill-level">Advanced</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="88"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">🔥</div><div class="skill-info"><span class="skill-name">PyTorch</span><span class="skill-level">Proficient</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="78"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">📊</div><div class="skill-info"><span class="skill-name">Streamlit</span><span class="skill-level">Advanced</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">⚡</div><div class="skill-info"><span class="skill-name">FastAPI</span><span class="skill-level">Proficient</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="80"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">🐳</div><div class="skill-info"><span class="skill-name">Docker</span><span class="skill-level">Proficient</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="74"></div></div></div>
+      <div class="skill-card glass-card reveal"><div class="skill-card-top"><div class="skill-icon">☁️</div><div class="skill-info"><span class="skill-name">Oracle OCI</span><span class="skill-level">Certified</span></div></div><div class="skill-bar"><div class="skill-fill" data-pct="78"></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ─── EXPERIENCE ─────────────────────────────────────── -->
+<!-- EXPERIENCE -->
 <section id="experience" class="section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Experience</h2>
-    </div>
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Experience</h2></div>
     <div class="timeline">
       <div class="timeline-item reveal">
-        <div class="timeline-marker">
-          <div class="marker-dot"></div>
-          <div class="marker-line"></div>
-        </div>
+        <div class="marker-dot"></div>
         <div class="timeline-card glass-card">
           <div class="exp-header">
-            <div>
-              <h3 class="exp-title">AI Intern</h3>
-              <p class="exp-company">Ernst &amp; Young (EY)</p>
-            </div>
-            <div class="exp-badge">2024</div>
+            <div><h3 class="exp-title">AI / ML Intern — Digital Transformation (HR Analytics)</h3><p class="exp-company">Ernst & Young (EY)</p></div>
+            <div class="exp-date">12 May – 22 Aug 2025 · Remote / Hyderabad</div>
           </div>
-          <p class="exp-desc">Worked on enterprise-level AI automation solutions, developing intelligent pipelines for data processing and analysis. Leveraged NLP and machine learning techniques to build scalable internal tools used by cross-functional teams.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Python</span>
-            <span class="exp-tag">NLP</span>
-            <span class="exp-tag">ML Pipelines</span>
-            <span class="exp-tag">Data Analytics</span>
-          </div>
+          <ul class="exp-ul">
+            <li>Worked on AI-driven analytics and automation solutions as part of the Digital Transformation in HR initiative</li>
+            <li>Developed <strong style="color:var(--text)">predictive models for sales forecasting and trend analysis</strong> using Python and Scikit-learn</li>
+            <li>Built interactive <strong style="color:var(--text)">Streamlit dashboards</strong> to support data-driven decision-making across business teams</li>
+            <li>Performed <strong style="color:var(--text)">data preprocessing, feature engineering, and model evaluation</strong> to improve forecast reliability</li>
+            <li>Collaborated with stakeholders to understand business requirements and deliver analytical solutions</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">Python</span><span class="exp-tag">Scikit-learn</span><span class="exp-tag">Streamlit</span><span class="exp-tag">Predictive Analytics</span><span class="exp-tag">Feature Engineering</span><span class="exp-tag">Data Preprocessing</span></div>
         </div>
       </div>
       <div class="timeline-item reveal reveal-delay">
-        <div class="timeline-marker">
-          <div class="marker-dot"></div>
-        </div>
+        <div class="marker-dot"></div>
         <div class="timeline-card glass-card">
           <div class="exp-header">
-            <div>
-              <h3 class="exp-title">AI/ML Trainee</h3>
-              <p class="exp-company">BeyonData</p>
-            </div>
-            <div class="exp-badge">2023</div>
+            <div><h3 class="exp-title">AI / ML Trainee</h3><p class="exp-company">BeyonData Solutions Pvt. Ltd.</p></div>
+            <div class="exp-date">12 Dec 2024 – 11 Apr 2025 · Ahmedabad</div>
           </div>
-          <p class="exp-desc">Trained and evaluated machine learning models for real-world datasets. Contributed to RAG-based chatbot development and exploratory data analysis projects. Gained practical experience in end-to-end ML workflows and model deployment.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">ML</span>
-            <span class="exp-tag">RAG</span>
-            <span class="exp-tag">LangChain</span>
-            <span class="exp-tag">Data Science</span>
-          </div>
+          <ul class="exp-ul">
+            <li>Built <strong style="color:var(--text)">GenAI-powered document intelligence and NLP automation systems</strong> for enterprise use cases</li>
+            <li>Designed and implemented <strong style="color:var(--text)">RAG pipelines using HuggingFace and Pinecone</strong> for efficient information retrieval</li>
+            <li>Developed <strong style="color:var(--text)">Streamlit applications</strong> to enable interaction with large document datasets</li>
+            <li>Performed <strong style="color:var(--text)">PDF preprocessing, text extraction, and embedding generation</strong> to enhance retrieval accuracy</li>
+            <li>Integrated <strong style="color:var(--text)">MongoDB and PostgreSQL</strong> for data storage; contributed to end-to-end AI application deployment</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">RAG</span><span class="exp-tag">HuggingFace</span><span class="exp-tag">Pinecone</span><span class="exp-tag">LangChain</span><span class="exp-tag">Streamlit</span><span class="exp-tag">MongoDB</span><span class="exp-tag">PostgreSQL</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PROJECTS ───────────────────────────────────────── -->
+<!-- PROJECTS -->
 <section id="projects" class="section section-alt">
   <div class="container">
-    <div class="section-header">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Projects</h2>
-    </div>
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Projects</h2></div>
     <div class="projects-grid">
-
       <div class="project-card glass-card reveal">
         <div class="project-glow"></div>
-        <div class="project-header">
-          <span class="project-num">01</span>
+        <div class="project-header"><span class="project-num">01</span>
           <div class="project-links">
-            <a href="https://github.com/PranjalAmbwani1305" target="_blank" class="icon-btn" title="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <a href="#" class="icon-btn" title="Live Demo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
+            <a href="https://github.com/PranjalAmbwani1305/Eval-Task-" target="_blank" class="icon-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://evaltask.streamlit.app/" target="_blank" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+        </div>
+        <h3 class="project-title">SmartWorkAI — LLM Task Management</h3>
+        <p class="project-desc">Intelligent task management platform using LLMs and RAG architecture. Hybrid HuggingFace Transformers + SVM pipeline to decompose complex tasks into actionable sub-tasks with 90%+ accuracy. Real-time Streamlit dashboard with performance analytics.</p>
+        <div class="project-stack"><span>LLMs</span><span>RAG</span><span>Pinecone</span><span>HuggingFace</span><span>SVM</span><span>Streamlit</span></div>
+      </div>
+      <div class="project-card glass-card reveal reveal-delay">
+        <div class="project-glow"></div>
+        <div class="project-header"><span class="project-num">02</span>
+          <div class="project-links">
+            <a href="https://github.com/PranjalAmbwani1305/AI-Cyber-Threat-Intelligence-Analysis" target="_blank" class="icon-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
           </div>
         </div>
         <h3 class="project-title">Cyber Threat Intelligence Automation</h3>
-        <p class="project-desc">Automated pipeline for collecting, processing, and analyzing cyber threat intelligence feeds using NLP and ML. Identifies threat patterns and generates actionable security insights in real time.</p>
-        <div class="project-stack">
-          <span>Python</span><span>NLP</span><span>LangChain</span><span>FastAPI</span><span>Docker</span>
-        </div>
+        <p class="project-desc">Automated CTI pipeline using SecureBERT-NER to extract IoCs, malware signatures, threat actors and attack patterns from PDF reports. Knowledge Graph via igraph for entity correlation. Improved extraction accuracy by 25% through preprocessing optimization.</p>
+        <div class="project-stack"><span>SecureBERT</span><span>NER</span><span>Knowledge Graph</span><span>igraph</span><span>Python</span></div>
       </div>
-
-      <div class="project-card glass-card reveal reveal-delay">
-        <div class="project-glow"></div>
-        <div class="project-header">
-          <span class="project-num">02</span>
-          <div class="project-links">
-            <a href="https://github.com/PranjalAmbwani1305" target="_blank" class="icon-btn" title="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <a href="#" class="icon-btn" title="Live Demo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-        </div>
-        <h3 class="project-title">Sales Prediction Dashboard</h3>
-        <p class="project-desc">End-to-end ML dashboard for sales forecasting using ensemble models. Features interactive visualizations, real-time prediction updates, and exportable reports for business decision-making.</p>
-        <div class="project-stack">
-          <span>Python</span><span>Streamlit</span><span>Scikit-learn</span><span>Pandas</span><span>Plotly</span>
-        </div>
-      </div>
-
       <div class="project-card glass-card reveal">
         <div class="project-glow"></div>
-        <div class="project-header">
-          <span class="project-num">03</span>
+        <div class="project-header"><span class="project-num">03</span>
           <div class="project-links">
-            <a href="https://github.com/PranjalAmbwani1305" target="_blank" class="icon-btn" title="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <a href="#" class="icon-btn" title="Live Demo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
+            <a href="https://github.com/PranjalAmbwani1305/Predictive-Analytics-for-Sales-Forecasting" target="_blank" class="icon-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://predictive-analytics-for-sales-forecasting-7pyqgdxuovvnbu5abbd.streamlit.app/" target="_blank" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           </div>
         </div>
-        <h3 class="project-title">Tender Bot using RAG</h3>
-        <p class="project-desc">Intelligent document Q&A bot built on RAG architecture. Ingests tender documents into a vector database and enables semantic search and natural language querying for procurement teams.</p>
-        <div class="project-stack">
-          <span>LangChain</span><span>Pinecone</span><span>HuggingFace</span><span>Streamlit</span><span>OpenAI</span>
-        </div>
+        <h3 class="project-title">Sales Prediction Web App</h3>
+        <p class="project-desc">Interactive sales forecasting app using Linear Regression pipeline. Users upload CSV datasets, get automatic preprocessing, real-time Actual vs Predicted visualizations, R² performance metrics, and downloadable prediction results. Built during EY internship.</p>
+        <div class="project-stack"><span>Python</span><span>Scikit-learn</span><span>Streamlit</span><span>Linear Regression</span><span>Pandas</span></div>
       </div>
-
       <div class="project-card glass-card reveal reveal-delay">
         <div class="project-glow"></div>
-        <div class="project-header">
-          <span class="project-num">04</span>
+        <div class="project-header"><span class="project-num">04</span>
           <div class="project-links">
-            <a href="https://github.com/PranjalAmbwani1305" target="_blank" class="icon-btn" title="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <a href="#" class="icon-btn" title="Live Demo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
+            <a href="https://github.com/PranjalAmbwani1305/gujarati_newspaper_webscrapper" target="_blank" class="icon-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="https://gujaratinewspaperwebscrapper-nk5wskfbjizkdk85lzwaue.streamlit.app/" target="_blank" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           </div>
         </div>
-        <h3 class="project-title">AI News Scraper</h3>
-        <p class="project-desc">Automated news aggregation system using web scraping and NLP. Classifies and summarizes AI-related articles from multiple sources, with sentiment analysis and topic clustering.</p>
-        <div class="project-stack">
-          <span>Python</span><span>BeautifulSoup</span><span>NLP</span><span>Transformers</span><span>FastAPI</span>
-        </div>
+        <h3 class="project-title">Gujarat Newspaper AI Scraper</h3>
+        <p class="project-desc">OCR-based automated pipeline scraping 500+ Gujarati news articles. Advanced NLP preprocessing with NLTK for keyword frequency analysis and topic trend detection. Outputs structured JSON/CSV datasets ready for ML workflows.</p>
+        <div class="project-stack"><span>BeautifulSoup</span><span>OCR</span><span>NLTK</span><span>Python</span><span>Streamlit</span></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ─── GITHUB AUTO ─────────────────────────────────────── -->
-<section id="github" class="section">
+<!-- CERTIFICATIONS -->
+<section id="certs" class="section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-num">05</span>
-      <h2 class="section-title">GitHub Activity</h2>
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Certifications</h2></div>
+    <div class="cert-grid">
+      <div class="cert-card glass-card reveal"><div class="cert-ico">☁️</div><div><div class="cert-org">Oracle</div><div class="cert-name">OCI Generative AI Professional</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">📊</div><div><div class="cert-org">Oracle</div><div class="cert-name">OCI Data Science Professional</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">🔍</div><div><div class="cert-org">Oracle</div><div class="cert-name">OCI AI Vector Search Professional</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">🤖</div><div><div class="cert-org">Oracle</div><div class="cert-name">OCI AI Foundations Associate</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">🌐</div><div><div class="cert-org">Oracle</div><div class="cert-name">OCI Foundations Associate</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">💙</div><div><div class="cert-org">Microsoft</div><div class="cert-name">Azure AI Fundamentals</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">💡</div><div><div class="cert-org">IBM</div><div class="cert-name">Artificial Intelligence Fundamentals</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">🐍</div><div><div class="cert-org">Cisco Networking Academy</div><div class="cert-name">Python Essentials 1</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">📈</div><div><div class="cert-org">NPTEL</div><div class="cert-name">Python for Data Science</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">🎓</div><div><div class="cert-org">Accenture</div><div class="cert-name">Digital Course on Artificial Intelligence</div></div></div>
+      <div class="cert-card glass-card reveal"><div class="cert-ico">⚙️</div><div><div class="cert-org">Acmegrade</div><div class="cert-name">ML Training & Internship Program</div></div></div>
     </div>
-    <div class="github-profile-bar reveal">
+  </div>
+</section>
+
+<!-- GITHUB -->
+<section id="github" class="section section-alt">
+  <div class="container">
+    <div class="section-header"><span class="section-num">06</span><h2 class="section-title">GitHub Activity</h2></div>
+    <div class="github-profile-bar glass-card reveal">
       <div class="gh-avatar-wrap">
-        <img id="gh-avatar" src="" alt="GitHub Avatar" class="gh-avatar">
+        <img id="gh-avatar" src="https://github.com/PranjalAmbwani1305.png" alt="GitHub Avatar" class="gh-avatar">
         <div class="gh-online"></div>
       </div>
       <div class="gh-info">
-        <h3 id="gh-name">Loading...</h3>
-        <p id="gh-bio">Fetching GitHub data...</p>
+        <h3 id="gh-name">PranjalAmbwani1305</h3>
+        <p id="gh-bio">AI & ML Engineer · GenAI · NLP · RAG</p>
         <div class="gh-stats">
           <span><strong id="gh-repos">—</strong> Repos</span>
           <span><strong id="gh-followers">—</strong> Followers</span>
@@ -621,104 +500,69 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
       <a href="https://github.com/PranjalAmbwani1305" target="_blank" class="btn-ghost">View Profile →</a>
     </div>
     <div id="repos-grid" class="repos-grid">
-      <div class="repo-skeleton"></div>
-      <div class="repo-skeleton"></div>
-      <div class="repo-skeleton"></div>
-      <div class="repo-skeleton"></div>
-      <div class="repo-skeleton"></div>
-      <div class="repo-skeleton"></div>
+      <div class="repo-skeleton"></div><div class="repo-skeleton"></div><div class="repo-skeleton"></div>
+      <div class="repo-skeleton"></div><div class="repo-skeleton"></div><div class="repo-skeleton"></div>
     </div>
   </div>
 </section>
 
-<!-- ─── CONTACT ────────────────────────────────────────── -->
-<section id="contact" class="section section-alt">
+<!-- CONTACT -->
+<section id="contact" class="section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-num">06</span>
-      <h2 class="section-title">Get In Touch</h2>
-    </div>
+    <div class="section-header"><span class="section-num">07</span><h2 class="section-title">Get In Touch</h2></div>
     <div class="contact-grid">
       <div class="contact-text reveal">
-        <p class="contact-lead">Have a project in mind or want to collaborate on something exciting in AI?</p>
-        <p>I'm always open to discussing new opportunities, research ideas, or just talking shop about the latest in GenAI and LLMs.</p>
+        <p class="contact-lead">Open to AI/ML roles, GenAI projects, and meaningful collaborations.</p>
+        <p>Whether you have a full-time role, an internship, or just want to talk AI — my inbox is always open. I'm actively looking for opportunities in Ahmedabad, Mumbai, Pune, Bangalore or remote.</p>
         <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#f58587949b9f949994989782949b9cc4c6b59298949c99db969a98" class="contact-card glass-card">
-            <span class="contact-icon">📧</span>
-            <div>
-              <span class="contact-label">Email</span>
-              <span class="contact-val"><span class="__cf_email__" data-cfemail="d5a5a7b4bbbfb4b9b4b8b7a2b4bbbce4e695b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></span>
-            </div>
-          </a>
-          <a href="https://linkedin.com/in/pranjal-ambwani" target="_blank" class="contact-card glass-card">
-            <span class="contact-icon">💼</span>
-            <div>
-              <span class="contact-label">LinkedIn</span>
-              <span class="contact-val">pranjal-ambwani</span>
-            </div>
-          </a>
-          <a href="https://github.com/PranjalAmbwani1305" target="_blank" class="contact-card glass-card">
-            <span class="contact-icon">🐙</span>
-            <div>
-              <span class="contact-label">GitHub</span>
-              <span class="contact-val">PranjalAmbwani1305</span>
-            </div>
-          </a>
+          <a href="mailto:pramb2003@gmail.com" class="contact-card glass-card"><span class="contact-icon">📧</span><div><span class="contact-label">Email</span><span class="contact-val">pramb2003@gmail.com</span></div></a>
+          <a href="https://linkedin.com/in/pranjal-ambwani-644066230" target="_blank" class="contact-card glass-card"><span class="contact-icon">💼</span><div><span class="contact-label">LinkedIn</span><span class="contact-val">pranjal-ambwani-644066230</span></div></a>
+          <a href="https://github.com/PranjalAmbwani1305" target="_blank" class="contact-card glass-card"><span class="contact-icon">🐙</span><div><span class="contact-label">GitHub</span><span class="contact-val">PranjalAmbwani1305</span></div></a>
+          <a href="tel:+917436077888" class="contact-card glass-card"><span class="contact-icon">📱</span><div><span class="contact-label">Phone</span><span class="contact-val">+91 74360 77888</span></div></a>
         </div>
       </div>
       <form class="contact-form glass-card reveal reveal-delay" id="contact-form">
         <h3>Send a Message</h3>
-        <div class="form-group">
-          <input type="text" id="form-name" placeholder="Your Name" required>
-          <label for="form-name">Name</label>
-        </div>
-        <div class="form-group">
-          <input type="email" id="form-email" placeholder="your@email.com" required>
-          <label for="form-email">Email</label>
-        </div>
-        <div class="form-group">
-          <textarea id="form-msg" rows="4" placeholder="Tell me about your project..." required></textarea>
-          <label for="form-msg">Message</label>
-        </div>
-        <button type="submit" class="btn-primary w-full">Send Message <span class="arrow">→</span></button>
+        <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+        <div class="form-group"><input type="email" placeholder="your@email.com" required></div>
+        <div class="form-group"><textarea rows="4" placeholder="Tell me about the opportunity..." required></textarea></div>
+        <button type="submit" class="btn-primary w-full">Send Message →</button>
         <p id="form-status" class="form-status"></p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─────────────────────────────────────────── -->
-<footer class="footer">
+<footer>
   <div class="container">
-    <p>Built with ❤️ by <span class="highlight">Pranjal Ambwani</span> · 2024</p>
-    <p class="footer-sub">AI Engineer · GenAI · NLP · RAG</p>
+    <p>Built by <span style="color:var(--accent)">Pranjal Ambwani</span> · AI & ML Engineer · 2025</p>
+    <p class="footer-sub">GenAI · NLP · RAG · LLMs · Python</p>
   </div>
 </footer>
 
-<!-- ─── CHATBOT WIDGET ─────────────────────────────────── -->
+<!-- CHATBOT -->
 <div id="chatbot-widget">
   <div id="chat-window" class="glass-card">
     <div class="chat-header">
-      <div class="chat-avatar">AI</div>
-      <div>
-        <strong>Pranjal's AI Assistant</strong>
-        <p>Ask me anything!</p>
+      <div class="chat-avatar">PA</div>
+      <div class="chat-header-info">
+        <strong>Pranjal's Assistant</strong>
+        <p>Ask me anything · No API needed</p>
       </div>
       <button id="chat-close">✕</button>
     </div>
     <div id="chat-messages">
-      <div class="chat-msg bot">
-        <span>👋 Hi! I'm Pranjal's AI assistant. Ask me about her projects, skills, experience, or education!</span>
-      </div>
-    </div>
-    <div class="chat-input-row">
-      <input type="text" id="chat-input" placeholder="Ask about skills, projects...">
-      <button id="chat-send">➤</button>
+      <div class="chat-msg bot"><span>👋 Hi! I'm Pranjal's AI assistant. Ask me about her skills, projects, internships, education, or how to contact her!</span></div>
     </div>
     <div class="chat-suggestions">
-      <button class="suggestion" data-q="What are Pranjal's main skills?">Skills</button>
-      <button class="suggestion" data-q="Tell me about the Tender Bot project">Tender Bot</button>
-      <button class="suggestion" data-q="Where has Pranjal worked?">Experience</button>
+      <button class="suggestion" data-q="Tell me about EY internship">EY Internship</button>
+      <button class="suggestion" data-q="What projects has she built?">Projects</button>
+      <button class="suggestion" data-q="What are her skills?">Skills</button>
+      <button class="suggestion" data-q="Is she open to work?">Hiring?</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Ask anything about Pranjal...">
+      <button id="chat-send">↑</button>
     </div>
   </div>
   <button id="chat-toggle">
@@ -727,9 +571,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
   </button>
 </div>
 
-
 <script>
-/* CANVAS BG */
+/* ── CANVAS ── */
 (function(){
   const c=document.getElementById('bg-canvas'),ctx=c.getContext('2d');
   let W,H,pts=[];
@@ -745,7 +588,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
       if(d<120){p.vx+=dx/d*.012;p.vy+=dy/d*.012;}
       const s=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(s>.7){p.vx=p.vx/s*.7;p.vy=p.vy/s*.7;}
       p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,220,192,0.25)';ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,220,192,0.22)';ctx.fill();
     });
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
@@ -756,35 +599,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
   draw();
 })();
 
-/* CURSOR */
+/* ── CURSOR ── */
 const dot=document.getElementById('curDot'),ring=document.getElementById('curRing');
 let mx2=0,my2=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx2=e.clientX;my2=e.clientY;dot.style.left=mx2+'px';dot.style.top=my2+'px';});
 (function lr(){rx+=(mx2-rx)*.13;ry+=(my2-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lr);})();
-document.querySelectorAll('a,button,.project-card,.skill-card,.timeline-card,.contact-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>ring.classList.add('hov'));
-  el.addEventListener('mouseleave',()=>ring.classList.remove('hov'));
-});
+document.querySelectorAll('a,button,.project-card,.skill-card,.timeline-card,.contact-card,.cert-card').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('hov'));el.addEventListener('mouseleave',()=>ring.classList.remove('hov'));});
 document.addEventListener('mouseleave',()=>{dot.style.opacity='0';ring.style.opacity='0';});
 document.addEventListener('mouseenter',()=>{dot.style.opacity='1';ring.style.opacity='0.5';});
 
-/* SCROLL PROGRESS */
+/* ── SCROLL PROGRESS ── */
 const bar=document.getElementById('scrollBar');
 window.addEventListener('scroll',()=>{bar.style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';},{passive:true});
 
-/* REVEAL */
+/* ── REVEAL ── */
 const rvObs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);rvObs.unobserve(e.target);}});
 },{threshold:0.07});
 document.querySelectorAll('.reveal').forEach(el=>rvObs.observe(el));
 
-/* SKILL BARS */
+/* ── SKILL BARS ── */
 const barObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.skill-fill').forEach(b=>{b.style.width=(b.dataset.pct||b.style.getPropertyValue('--pct'))+'%';});barObs.unobserve(e.target);}});
+  entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.skill-fill').forEach(b=>{b.style.width=b.dataset.pct+'%';});barObs.unobserve(e.target);}});
 },{threshold:0.2});
 document.querySelectorAll('.skills-grid').forEach(el=>barObs.observe(el));
 
-/* COUNTERS */
+/* ── COUNTERS ── */
 const cntObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
@@ -799,25 +639,23 @@ const cntObs=new IntersectionObserver(entries=>{
 },{threshold:0.5});
 const hc=document.querySelector('.hero-content');if(hc)cntObs.observe(hc);
 
-/* ACTIVE NAV */
+/* ── ACTIVE NAV ── */
 const navAs=document.querySelectorAll('.nav-links a');
-const secObs2=new IntersectionObserver(entries=>{
+const secObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});
 },{threshold:0.3});
-document.querySelectorAll('section[id]').forEach(s=>secObs2.observe(s));
+document.querySelectorAll('section[id]').forEach(s=>secObs.observe(s));
 
-/* GITHUB */
+/* ── GITHUB ── */
 const LC={'Python':'#3572A5','JavaScript':'#f1e05a','HTML':'#e34c26','Jupyter Notebook':'#DA5B0B','TypeScript':'#2b7489'};
 async function loadGH(){
   try{
     const[uR,rR]=await Promise.all([fetch('https://api.github.com/users/PranjalAmbwani1305'),fetch('https://api.github.com/users/PranjalAmbwani1305/repos?sort=updated&per_page=6')]);
     const u=await uR.json(),repos=await rR.json();
-    const ni=document.getElementById('gh-name');if(ni)ni.textContent=u.name||u.login;
-    const bi=document.getElementById('gh-bio');if(bi)bi.textContent=u.bio||'AI & ML Engineer · GenAI · NLP · RAG';
-    const ri=document.getElementById('gh-repos');if(ri)ri.textContent=u.public_repos||'—';
-    const fi=document.getElementById('gh-followers');if(fi)fi.textContent=u.followers||'—';
-    const gi=document.getElementById('gh-following');if(gi)gi.textContent=u.following||'—';
-    const av=document.getElementById('gh-avatar');if(av)av.src=u.avatar_url||'https://github.com/PranjalAmbwani1305.png';
+    const set=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val;};
+    set('gh-name',u.name||u.login);set('gh-bio',u.bio||'AI & ML Engineer · GenAI · NLP · RAG');
+    set('gh-repos',u.public_repos||'—');set('gh-followers',u.followers||'—');set('gh-following',u.following||'—');
+    const av=document.getElementById('gh-avatar');if(av&&u.avatar_url)av.src=u.avatar_url;
     const grid=document.getElementById('repos-grid');
     if(grid&&Array.isArray(repos)){
       grid.innerHTML=repos.map(r=>`
@@ -826,7 +664,7 @@ async function loadGH(){
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             ${r.name}
           </a>
-          <div class="repo-desc">${r.description||'No description.'}</div>
+          <div class="repo-desc">${r.description||'No description available.'}</div>
           <div class="repo-meta">
             ${r.language?`<span class="repo-lang"><span class="lang-dot" style="background:${LC[r.language]||'var(--accent)'}"></span>${r.language}</span>`:''}
             <span class="repo-stars">⭐ ${r.stargazers_count}</span>
@@ -834,33 +672,127 @@ async function loadGH(){
         </div>`).join('');
       document.querySelectorAll('.repo-card').forEach(el=>rvObs.observe(el));
     }
-  }catch(e){console.log('GitHub load failed',e);}
+  }catch(e){document.getElementById('repos-grid').innerHTML='<p style="color:var(--muted);font-family:var(--fm);font-size:0.8rem;padding:20px;">Could not load repos. <a href="https://github.com/PranjalAmbwani1305" target="_blank" style="color:var(--accent)">View on GitHub →</a></p>';}
 }
 loadGH();
 
-/* CONTACT FORM */
-const cf=document.getElementById('contact-form');
-if(cf)cf.addEventListener('submit',e=>{
+/* ── CONTACT FORM ── */
+document.getElementById('contact-form').addEventListener('submit',e=>{
   e.preventDefault();
   const s=document.getElementById('form-status');
-  if(s){s.textContent='✓ Message sent! Pranjal will get back to you soon.';setTimeout(()=>s.textContent='',4000);}
-  cf.reset();
+  s.textContent='✓ Thanks! Pranjal will get back to you soon.';
+  setTimeout(()=>s.textContent='',4000);
+  e.target.reset();
 });
 
-/* CHATBOT KB */
-const KB=[
-  {k:['who','about','pranjal','yourself'],a:"Hi! I'm Pranjal Ambwani 👋 — AI & ML Engineer, M.Tech AI at NMIMS Mumbai (CGPA 8.09). I build LLMs, RAG pipelines, and NLP systems. Interned at EY and BeyonData Solutions!"},
-  {k:['ey','ernst','young','internship'],a:"At EY (May–Aug 2025): Built a sales forecasting ML system, performed EDA & feature engineering, developed a Streamlit analytics dashboard, and worked on LLM-based HR automation. 📊"},
-  {k:['beyondata','beyon','trainee'],a:"At BeyonData Solutions (Dec 2024–Apr 2025): Built GenAI document intelligence apps, RAG pipelines with HuggingFace + Pinecone, and OCR pipeline for 500+ Gujarati newspaper articles. 🔬"},
-  {k:['project','projects','built'],a:"Projects:\n🛡️ Cyber Threat Intelligence — SecureBERT-NER\n🧠 SmartWork AI — LLM+RAG, 90%+ accuracy\n📈 Sales Forecasting — ML dashboard\n📰 Gujarati Newspaper Scraper — OCR+NLP\nAll on github.com/PranjalAmbwani1305"},
-  {k:['skill','skills','tech','stack'],a:"Stack:\n🤖 GenAI: LLMs, RAG, LangChain, HuggingFace, Pinecone\n🧪 ML: PyTorch, Scikit-learn, Pandas\n☁️ Deploy: Streamlit, FastAPI, Docker, OCI, Azure"},
-  {k:['certif','oracle','azure','ibm'],a:"11 certifications including Oracle OCI GenAI Pro, OCI Data Science Pro, OCI AI Vector Search, Azure AI Fundamentals, IBM AI Fundamentals, NPTEL Python for Data Science."},
-  {k:['education','mtech','nmims','degree'],a:"🎓 M.Tech AI — NMIMS MPSTME Mumbai (2025–2027), CGPA 8.09\n🎓 B.E. Computer Engineering — LDRP Gandhinagar (2021–2025), CGPA 7.94"},
-  {k:['contact','email','hire','open','available'],a:"📧 pramb2003@gmail.com\n📱 +91 74360 77888\n💼 linkedin.com/in/pranjal-ambwani-644066230\nActively seeking AI/ML, GenAI, NLP roles! 🚀"},
-];
-const FB=["Great question! Email pramb2003@gmail.com for more. 😊","Check github.com/PranjalAmbwani1305 or ask about her projects/skills!","Want to know about her skills, projects, or experience? Ask me! 🤔"];
-function getBotReply(q){const l=q.toLowerCase();let b=null,bs=0;KB.forEach(e=>{const s=e.k.filter(k=>l.includes(k)).length;if(s>bs){bs=s;b=e;}});return b&&bs>0?b.a:FB[Math.floor(Math.random()*FB.length)];}
+/* ══════════════════════════════
+   SMART CHATBOT — NO API NEEDED
+══════════════════════════════ */
+const TOPICS = {
+  greet:{
+    keys:['hi','hello','hey','hii','helo','howdy','sup','good morning','good evening','namaste','yo'],
+    reply:()=>"Hey there! 👋 I'm Pranjal's AI assistant. Ask me about her:\n→ Skills & tech stack\n→ EY or BeyonData internship\n→ Projects she's built\n→ Education & certifications\n→ How to contact her\n\nWhat would you like to know?"
+  },
+  who:{
+    keys:['who is pranjal','who are you','about pranjal','tell me about her','introduce','pranjal ambwani','who she is'],
+    reply:()=>"Pranjal Ambwani is an AI & ML Engineer 🤖\n\n📍 Based in Mumbai, India\n🎓 M.Tech in Artificial Intelligence — NMIMS Mumbai (76.86%)\n🏢 Ex-Intern at EY & BeyonData Solutions\n💡 Specializes in GenAI, NLP, RAG pipelines & LLMs\n🚀 Actively seeking AI/ML roles\n✈️ Willing to relocate to Ahmedabad, Mumbai, Pune or Bangalore"
+  },
+  ey:{
+    keys:['ernst & young','ernst and young','ey internship','about ey','tell me about ey','ey intern','at ey','worked at ey','ey experience','ey project'],
+    reply:()=>"Ernst & Young (EY) — AI/ML Intern 🏢\n📅 12 May – 22 Aug 2025 · Remote / Hyderabad\n\nWhat she did:\n▸ Developed predictive models for sales forecasting using Python & Scikit-learn\n▸ Built interactive Streamlit dashboards for data-driven decision-making\n▸ Performed data preprocessing, feature engineering & model evaluation\n▸ Worked on Digital Transformation in HR Analytics initiative\n▸ Collaborated with stakeholders to deliver business-ready solutions\n\n🛠️ Stack: Python · Scikit-learn · Streamlit · Pandas · Feature Engineering"
+  },
+  beyondata:{
+    keys:['beyondata','beyon data','beyon solutions','beyondata internship','about beyondata','tell me about beyondata','beyondata experience','beyon'],
+    reply:()=>"BeyonData Solutions — AI/ML Trainee 🔬\n📅 12 Dec 2024 – 11 Apr 2025 · Ahmedabad\n\nWhat she did:\n▸ Built GenAI-powered document intelligence & NLP automation systems\n▸ Designed end-to-end RAG pipelines using HuggingFace & Pinecone\n▸ Developed Streamlit apps for interacting with large document datasets\n▸ Performed PDF preprocessing, text extraction & embedding generation\n▸ Integrated MongoDB & PostgreSQL for data storage & retrieval\n\n🛠️ Stack: RAG · HuggingFace · Pinecone · LangChain · Streamlit · MongoDB"
+  },
+  experience:{
+    keys:['experience','where has she worked','where did she work','work history','both internships','all internships','how many internships','companies she worked'],
+    reply:()=>"Pranjal has 2 internships:\n\n🏢 Ernst & Young (EY)\nAI/ML Intern · May–Aug 2025 · Remote/Hyderabad\nSales forecasting, Streamlit dashboards, HR analytics automation\n\n🔬 BeyonData Solutions\nAI/ML Trainee · Dec 2024–Apr 2025 · Ahmedabad\nRAG pipelines, GenAI document intelligence, OCR scraping\n\nAsk 'Tell me about EY' or 'Tell me about BeyonData' for full details!"
+  },
+  projects:{
+    keys:['projects','what has she built','what did she build','her work','portfolio projects','all projects','show projects'],
+    reply:()=>"Pranjal's 4 Projects:\n\n🧠 SmartWorkAI (Oct 2025 – ongoing)\nLLM + RAG task management · 90%+ accuracy · Live on Streamlit\n\n🛡️ Cyber Threat Intelligence Automation (Sep–Nov 2025)\nSecureBERT-NER · Knowledge Graph · +25% extraction accuracy\n\n📈 Sales Prediction Web App (May–Aug 2025)\nLinear Regression · Streamlit · Built during EY internship · Live demo\n\n📰 Gujarat Newspaper AI Scraper (Jan 2025)\nOCR + BeautifulSoup · 500+ articles · NLTK trend analysis · Live\n\nAll on → github.com/PranjalAmbwani1305"
+  },
+  smartwork:{
+    keys:['smartwork','smartworkai','smart work','task management','eval task','evaltask','llm task'],
+    reply:()=>"SmartWorkAI — LLM Task Management System 🧠\n📅 Oct 2025 – Ongoing\n\n▸ LLMs + RAG architecture for intelligent task planning\n▸ Pinecone vector DB for semantic intent extraction\n▸ HuggingFace Transformers + SVM hybrid pipeline\n▸ 90%+ accuracy in task decomposition\n▸ Real-time Streamlit dashboard with performance analytics\n▸ Modular design with Git version control\n\n🔗 Live: evaltask.streamlit.app\n💻 GitHub: github.com/PranjalAmbwani1305/Eval-Task-"
+  },
+  cyber:{
+    keys:['cyber','threat intelligence','cti','securebert','knowledge graph','security project','ioc','malware'],
+    reply:()=>"Cyber Threat Intelligence Automation 🛡️\n📅 Sep – Nov 2025\n\n▸ SecureBERT-NER to extract IoCs, malware, threat actors from PDFs\n▸ Classifies raw intel into structured machine-readable formats\n▸ Knowledge Graph via igraph for entity correlation & pattern analysis\n▸ Optimized preprocessing improved extraction accuracy by 25%\n▸ Automated ingestion pipeline for large-scale report processing\n▸ Analytical visualizations for faster threat assessment\n\n💻 GitHub: github.com/PranjalAmbwani1305/AI-Cyber-Threat-Intelligence-Analysis"
+  },
+  sales:{
+    keys:['sales prediction','sales forecasting','sales project','sales web app','linear regression project'],
+    reply:()=>"Sales Prediction Web App 📈\n📅 May–Aug 2025 (Built during EY internship)\n\n▸ Linear Regression ML pipeline: data → model → predictions\n▸ Users upload CSV datasets for custom forecasting\n▸ Auto-handles missing values, outliers & invalid records\n▸ Real-time Actual vs Predicted visualizations\n▸ R² score performance metrics\n▸ Download prediction results as CSV\n\n🔗 Live Demo on Streamlit!\n💻 GitHub: github.com/PranjalAmbwani1305/Predictive-Analytics-for-Sales-Forecasting"
+  },
+  scraper:{
+    keys:['scraper','newspaper','gujarati','ocr project','beautifulsoup project','news scraper','gujarati scraper'],
+    reply:()=>"Gujarat Newspaper AI Scraper 📰\n📅 Jan 2025\n\n▸ BeautifulSoup + OCR to scrape 500+ Gujarati articles\n▸ Advanced NLP preprocessing: cleaning, tokenization, noise removal\n▸ NLTK keyword frequency & topic trend analysis\n▸ Outputs structured JSON & CSV for ML workflows\n▸ Batch processing for reliable data ingestion\n▸ Handles dynamic pages, encoding issues & multilingual content\n\n🔗 Live: Streamlit app available!\n💻 GitHub: github.com/PranjalAmbwani1305/gujarati_newspaper_webscrapper"
+  },
+  skills:{
+    keys:['skills','tech stack','what can she do','expertise','technologies','what does she know','her skills','technical skills'],
+    reply:()=>"Pranjal's Technical Stack:\n\n🤖 GenAI & NLP:\nLLMs · RAG · LangChain · HuggingFace Transformers · BERT · Pinecone · Vector Embeddings\n\n🧪 Machine Learning:\nPyTorch · Scikit-learn · NumPy · Pandas · Deep Learning · NLP\n\n☁️ Deployment & Cloud:\nStreamlit · FastAPI · Docker · Oracle OCI (5 certs) · Azure AI · Flask\n\n🛠️ Data & Tools:\nPython · MongoDB · PostgreSQL · Git · Power BI · BeautifulSoup · NLTK · OCR"
+  },
+  education:{
+    keys:['education','degree','college','university','nmims','ldrp','mtech','study','academic','marks','percentage','cgpa'],
+    reply:()=>"Pranjal's Education:\n\n🎓 M.Tech in Artificial Intelligence\nNMIMS — Mukesh Patel School of Technology, Mumbai\n14 Jul 2025 – Present · 76.86%\n\n🎓 B.E. in Computer Engineering\nLDRP Institute of Technology & Research, Gandhinagar\n2021 – Apr 2025 · 74.40%\n\n📚 12th (HSC) — 78.46% · Science (Non-Medical)\nVed International School, Gujarat Board\n\n📚 10th (SSC) — 63.00%\nSchool of Achiever, Gujarat Board"
+  },
+  certs:{
+    keys:['certifications','certificates','oracle','azure','microsoft','ibm','cisco','nptel','accenture','credentials'],
+    reply:()=>"Pranjal's 11 Certifications:\n\n☁️ Oracle OCI (5 certs):\n• OCI Generative AI Professional\n• OCI Data Science Professional\n• OCI AI Vector Search Professional\n• OCI AI Foundations Associate\n• OCI Foundations Associate\n\n💙 Microsoft: Azure AI Fundamentals\n💡 IBM: AI Fundamentals\n🎓 Accenture: Digital AI Course\n🐍 Cisco: Python Essentials 1\n📈 NPTEL: Python for Data Science\n⚙️ Acmegrade: ML Training Program"
+  },
+  contact:{
+    keys:['contact','email','phone','linkedin','reach out','connect','message her','call','number','how to reach'],
+    reply:()=>"Contact Pranjal:\n\n📧 Email: pramb2003@gmail.com\n📱 Phone: +91 74360 77888\n💼 LinkedIn: linkedin.com/in/pranjal-ambwani-644066230\n💻 GitHub: github.com/PranjalAmbwani1305\n\nShe's very responsive and happy to connect! 😊"
+  },
+  hire:{
+    keys:['open to work','hiring','hire her','available','job opportunity','recruit','looking for job','full time','internship opportunity','is she available'],
+    reply:()=>"Yes! Pranjal is actively open to work! 🚀\n\nShe is open for:\n✅ Full-time AI/ML Engineer roles\n✅ Internship + PPO opportunities\n✅ Internship roles\n\nPreferred locations:\nAhmedabad · Mumbai · Pune · Bangalore · Remote\n\nWilling to relocate: Yes ✓\n\n📧 pramb2003@gmail.com\n📱 +91 74360 77888"
+  },
+  volunteer:{
+    keys:['volunteer','extracurricular','xenesis','workshop','position of responsibility','activities'],
+    reply:()=>"Pranjal's Extracurricular Activities:\n\n🎯 Event Volunteer — XENESIS 2024\nCampaigning Committee · LDRP Institute · Feb 2024\nCoordinated promotions, managed student outreach & event logistics\n\n📚 Workshop Volunteer — Data Structures Workshop\nLDRP Institute · Sep 2023\nHandled participant coordination & supported technical sessions"
+  },
+  thanks:{
+    keys:['thank','thanks','thank you','thankyou','great','awesome','helpful','nice','cool','good bot'],
+    reply:()=>"You're welcome! 😊 Feel free to ask anything else about Pranjal. I'm always here to help! 🤖"
+  },
+  help:{
+    keys:['help','what can you do','options','menu','what to ask','topics'],
+    reply:()=>"I can answer questions about Pranjal on these topics:\n\n👩‍💻 About / Introduction\n🏢 EY Internship (details)\n🔬 BeyonData Internship (details)\n🚀 All 4 Projects\n🛠️ Skills & Tech Stack\n🎓 Education & Marks\n📜 Certifications (11 total)\n📞 Contact Details\n💼 Job Availability & Preferences\n🎯 Volunteering Activities\n\nJust ask naturally — I'll understand!"
+  }
+};
 
+function getBotReply(q) {
+  const l = q.toLowerCase().trim();
+  let bestTopic = null, bestScore = 0;
+  for (const [, topic] of Object.entries(TOPICS)) {
+    let score = 0;
+    for (const key of topic.keys) {
+      if (l.includes(key)) score += key.length * 2;
+    }
+    if (score > bestScore) { bestScore = score; bestTopic = topic; }
+  }
+  if (bestTopic && bestScore > 0) return bestTopic.reply();
+  // Extra single-word checks
+  if(l.includes('rag')||l.includes('retrieval')) return TOPICS.skills.reply();
+  if(l.includes('nlp')) return TOPICS.skills.reply();
+  if(l.includes('generative')||l.includes('genai')) return TOPICS.skills.reply();
+  if(l.includes('resume')||l.includes('cv')) return "You can request Pranjal's resume at pramb2003@gmail.com 📄 or connect on LinkedIn: linkedin.com/in/pranjal-ambwani-644066230";
+  if(l.includes('age')||l.includes('born')) return "Pranjal was born on 13 May 2003 — she's 21 years old and already building impressive AI systems! 🌟";
+  if(l.includes('salary')||l.includes('ctc')||l.includes('pay')) return "Pranjal's expected CTC is open for discussion based on the role. Reach out at pramb2003@gmail.com to discuss! 😊";
+  if(l.includes('location')||l.includes('where')||l.includes('city')) return "Pranjal is based in Mumbai, India 📍 and willing to relocate to Ahmedabad, Mumbai, Pune, or Bangalore. Also open to remote!";
+  if(l.includes('language')||l.includes('speak')) return "Pranjal speaks 3 languages: English 🇬🇧, Hindi 🇮🇳, and Gujarati 🏡";
+  if(l.includes('python')) return "Python is Pranjal's primary language — she uses it for ML pipelines, RAG systems, NLP, FastAPI backends, and Streamlit dashboards. Expert level! 🐍";
+  const fallbacks = [
+    "I'm not sure about that! Try asking about her projects, skills, EY/BeyonData internships, education, or certifications. 🤔",
+    "Hmm, I didn't catch that! You can ask things like:\n→ 'Tell me about EY internship'\n→ 'What projects has she built?'\n→ 'What are her skills?'",
+    "Not sure about that one! Type 'help' to see all topics I can answer. 😊"
+  ];
+  return fallbacks[Math.floor(Math.random()*fallbacks.length)];
+}
+
+/* ── CHATBOT UI ── */
 const toggle=document.getElementById('chat-toggle');
 const win=document.getElementById('chat-window');
 const closeBtn=document.getElementById('chat-close');
@@ -868,28 +800,32 @@ const chatMsgs=document.getElementById('chat-messages');
 const chatInp=document.getElementById('chat-input');
 const chatSnd=document.getElementById('chat-send');
 let chatOpen=false,chatBusy=false;
-if(toggle)toggle.addEventListener('click',()=>{chatOpen=!chatOpen;win.classList.toggle('open',chatOpen);if(chatOpen&&chatInp)chatInp.focus();});
-if(closeBtn)closeBtn.addEventListener('click',()=>{chatOpen=false;win.classList.remove('open');});
-if(chatInp)chatInp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!chatBusy)sendChat();});
-if(chatSnd)chatSnd.addEventListener('click',()=>{if(!chatBusy)sendChat();});
-document.querySelectorAll('.suggestion').forEach(btn=>{btn.addEventListener('click',()=>{if(chatInp)chatInp.value=btn.dataset.q;sendChat();});});
+
+toggle.addEventListener('click',()=>{chatOpen=!chatOpen;win.classList.toggle('open',chatOpen);if(chatOpen)chatInp.focus();});
+closeBtn.addEventListener('click',()=>{chatOpen=false;win.classList.remove('open');});
+chatInp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!chatBusy)sendChat();});
+chatSnd.addEventListener('click',()=>{if(!chatBusy)sendChat();});
+document.querySelectorAll('.suggestion').forEach(btn=>{
+  btn.addEventListener('click',()=>{chatInp.value=btn.dataset.q;sendChat();});
+});
+
 function addChatMsg(role,text){
   const d=document.createElement('div');d.className='chat-msg '+role;
   d.innerHTML='<span>'+text.replace(/\n/g,'<br>')+'</span>';
-  if(chatMsgs){chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;}
+  chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;
 }
+
 function sendChat(){
-  if(!chatInp)return;
   const text=chatInp.value.trim();if(!text||chatBusy)return;
-  chatInp.value='';chatBusy=true;if(chatSnd)chatSnd.disabled=true;
+  chatInp.value='';chatBusy=true;chatSnd.disabled=true;
   addChatMsg('user',text);
   const t=document.createElement('div');t.className='chat-msg bot';t.id='chat-typing';
   t.innerHTML='<span><div class="typing-dots"><div class="td"></div><div class="td"></div><div class="td"></div></div></span>';
-  if(chatMsgs){chatMsgs.appendChild(t);chatMsgs.scrollTop=chatMsgs.scrollHeight;}
+  chatMsgs.appendChild(t);chatMsgs.scrollTop=chatMsgs.scrollHeight;
   setTimeout(()=>{
     const tt=document.getElementById('chat-typing');if(tt)tt.remove();
     addChatMsg('bot',getBotReply(text));
-    chatBusy=false;if(chatSnd)chatSnd.disabled=false;if(chatInp)chatInp.focus();
+    chatBusy=false;chatSnd.disabled=false;chatInp.focus();
   },500+Math.random()*400);
 }
 </script>
