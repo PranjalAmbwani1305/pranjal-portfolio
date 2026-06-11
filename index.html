@@ -84,7 +84,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:60px;display:flex;ali
 .stat-lbl{font-family:var(--fm);font-size:0.58rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px;display:block;}
 
 /* ── HERO VISUAL — 3D FLOATING CARD ── */
-.hero-right{position:relative;z-index:1;}
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:16px;}
 .floating-card-wrap{transform-style:preserve-3d;perspective:1000px;}
 .floating-card{background:var(--glass);border:1px solid var(--border2);backdrop-filter:blur(20px);padding:32px;border-radius:4px;transform-style:preserve-3d;animation:float3d 7s ease-in-out infinite;position:relative;overflow:hidden;}
 .floating-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p1),var(--a1),var(--p1));background-size:200% auto;animation:border-run 3s linear infinite;}
@@ -284,15 +284,128 @@ footer a{color:var(--p1);text-decoration:none;}
 #chat-send{background:var(--p2);color:#fff;border:none;padding:7px 13px;font-size:0.9rem;border-radius:3px;transition:background 0.2s;}
 #chat-send:hover{background:var(--p1);color:var(--ink);}
 
+/* ── ORBIT SYSTEM ── */
+.orbit-system{position:relative;width:360px;height:360px;flex-shrink:0;margin:0 auto 24px;}
+.orbit-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(180,142,255,0.18);}
+.orb-r1{width:140px;height:140px;margin:-70px;animation:orb1 7s linear infinite;}
+.orb-r2{width:240px;height:240px;margin:-120px;animation:orb2 13s linear infinite;}
+.orb-r3{width:340px;height:340px;margin:-170px;animation:orb3 19s linear infinite;}
+@keyframes orb1{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes orb2{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes orb3{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.orb-icon{position:absolute;width:34px;height:34px;top:50%;left:50%;border-radius:50%;background:rgba(14,10,28,0.95);border:1px solid rgba(180,142,255,0.35);display:flex;align-items:center;justify-content:center;}
+.orb-icon img{width:18px;height:18px;object-fit:contain;}
+.orbit-center-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;display:flex;align-items:center;justify-content:center;}
+.orbit-center-pulse{position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,rgba(180,142,255,0.18),transparent 70%);animation:cpulse 2.5s ease-in-out infinite;}
+.orbit-center-ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--p1);box-shadow:0 0 20px rgba(180,142,255,0.3);}
+.orbit-center-txt{font-family:var(--fd);font-size:1.4rem;color:var(--p1);position:relative;z-index:1;letter-spacing:0.1em;}
+@keyframes cpulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(1.3);}}
+
 @media(max-width:900px){
   #hero{grid-template-columns:1fr;}.hero-right{display:none;}
   .about-grid,.contact-grid{grid-template-columns:1fr;}
   .nav-links{display:none;}
   #chat-window{width:calc(100vw - 40px);}
 }
+
+/* ══ INTRO LOADER ══ */
+#intro-loader{
+  position:fixed;inset:0;z-index:99999;
+  background:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+#intro-loader.hide{
+  animation:loaderOut 0.9s cubic-bezier(0.76,0,0.24,1) forwards;
+}
+@keyframes loaderOut{
+  0%{clip-path:inset(0 0 0 0);}
+  100%{clip-path:inset(0 0 100% 0);}
+}
+.ldr-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(180,142,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(180,142,255,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  animation:gridFade 3.5s ease forwards;
+}
+@keyframes gridFade{0%{opacity:0;}30%{opacity:1;}90%{opacity:1;}100%{opacity:0;}}
+.ldr-ring-wrap{position:relative;width:180px;height:180px;margin-bottom:40px;}
+.ldr-ring{
+  position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(180,142,255,0.2);
+  animation:ldrSpin 3s linear infinite;
+}
+.ldr-ring:nth-child(2){
+  inset:16px;border-color:rgba(244,114,182,0.2);
+  animation-direction:reverse;animation-duration:2s;
+}
+.ldr-ring:nth-child(3){
+  inset:32px;border-color:rgba(180,142,255,0.35);
+  animation-duration:4s;
+}
+.ldr-ring::after{
+  content:'';position:absolute;top:-3px;left:50%;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--p1);transform:translateX(-50%);
+  box-shadow:0 0 10px var(--p1),0 0 20px var(--p1);
+}
+.ldr-ring:nth-child(2)::after{background:var(--a1);box-shadow:0 0 10px var(--a1),0 0 20px var(--a1);}
+@keyframes ldrSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.ldr-center{
+  position:absolute;inset:48px;border-radius:50%;
+  background:rgba(14,10,28,0.9);
+  border:2px solid var(--p1);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 30px rgba(180,142,255,0.25);
+}
+.ldr-logo{font-family:var(--fd);font-size:2.2rem;color:var(--p1);letter-spacing:0.1em;}
+.ldr-logo span{color:var(--a1);}
+.ldr-lines{width:300px;display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.ldr-line{height:1px;background:rgba(180,142,255,0.12);position:relative;overflow:hidden;}
+.ldr-line::after{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,var(--p1),transparent);
+  animation:scanLine 1.8s ease-in-out infinite;
+}
+.ldr-line:nth-child(2)::after{animation-delay:0.3s;}
+.ldr-line:nth-child(3)::after{animation-delay:0.6s;background:linear-gradient(90deg,transparent,var(--a1),transparent);}
+@keyframes scanLine{0%{left:-100%;}100%{left:100%;}}
+.ldr-terminal{
+  font-family:var(--fm);font-size:0.7rem;color:var(--muted);
+  text-align:center;letter-spacing:0.08em;
+  min-height:22px;
+}
+.ldr-terminal .cursor{display:inline-block;width:2px;height:12px;background:var(--p1);animation:blink 0.9s infinite;vertical-align:middle;margin-left:3px;}
+.ldr-bar-wrap{width:260px;height:2px;background:rgba(180,142,255,0.1);margin-top:24px;overflow:hidden;}
+.ldr-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--p2),var(--p1),var(--a1));transition:width 0.12s linear;}
+.ldr-pct{font-family:var(--fm);font-size:0.62rem;color:var(--p1);margin-top:8px;letter-spacing:0.1em;}
+/* hide scrollbar during load */
+body.loading{overflow:hidden;}
 </style>
 </head>
-<body>
+<body class="loading">
+
+<!-- ══ INTRO LOADER ══ -->
+<div id="intro-loader">
+  <div class="ldr-grid"></div>
+  <div class="ldr-ring-wrap">
+    <div class="ldr-ring"></div>
+    <div class="ldr-ring"></div>
+    <div class="ldr-ring"></div>
+    <div class="ldr-center"><div class="ldr-logo">PA<span>.</span></div></div>
+  </div>
+  <div class="ldr-lines">
+    <div class="ldr-line"></div>
+    <div class="ldr-line"></div>
+    <div class="ldr-line"></div>
+  </div>
+  <div class="ldr-terminal" id="ldr-text">Initializing<span class="cursor"></span></div>
+  <div class="ldr-bar-wrap"><div class="ldr-bar" id="ldr-bar"></div></div>
+  <div class="ldr-pct" id="ldr-pct">0%</div>
+</div>
+<!-- ══ END LOADER ══ -->
 <div class="scroll-progress" id="scrollBar"></div>
 <div class="cur-dot" id="curDot"></div>
 <div class="cur-ring" id="curRing"></div>
@@ -330,12 +443,31 @@ footer a{color:var(--p1);text-decoration:none;}
       <a href="mailto:pramb2003@gmail.com" class="btn-g">Get In Touch</a>
     </div>
     <div class="stats-row">
-      <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-lbl">Projects</span></div>
+      <div class="stat"><span class="stat-num" data-target="6">0</span><span class="stat-lbl">Projects</span></div>
       <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-lbl">Internships</span></div>
       <div class="stat"><span class="stat-num" data-target="11">0</span><span class="stat-lbl">Certifications</span></div>
     </div>
   </div>
   <div class="hero-right">
+    <div class="orbit-system">
+      <div class="orbit-ring orb-r1">
+        <div class="orb-icon" style="--angle:0deg;--r:70px"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+      </div>
+      <div class="orbit-ring orb-r2">
+        <div class="orb-icon" style="--angle:60deg;--r:120px"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TF"></div>
+        <div class="orb-icon" style="--angle:240deg;--r:120px"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
+      </div>
+      <div class="orbit-ring orb-r3">
+        <div class="orb-icon" style="--angle:30deg;--r:170px"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI"></div>
+        <div class="orb-icon" style="--angle:150deg;--r:170px"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"></div>
+        <div class="orb-icon" style="--angle:270deg;--r:170px"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
+      </div>
+      <div class="orbit-center-wrap">
+        <div class="orbit-center-pulse"></div>
+        <div class="orbit-center-ring"></div>
+        <span class="orbit-center-txt">AI</span>
+      </div>
+    </div>
     <div class="floating-card-wrap">
       <div class="floating-card">
         <div class="fc-header">
@@ -344,17 +476,11 @@ footer a{color:var(--p1);text-decoration:none;}
         </div>
         <div class="fc-code">
           <span class="fc-l"><span class="fc-k">from</span> <span class="fc-n">intelligence</span> <span class="fc-k">import</span> <span class="fc-s">Engineer</span></span>
-          <span class="fc-l">&nbsp;</span>
-          <span class="fc-l"><span class="fc-c"># Initialize</span></span>
           <span class="fc-l"><span class="fc-n">me</span> <span class="fc-m">=</span> <span class="fc-s">Engineer</span><span class="fc-n">(</span></span>
           <span class="fc-l">&nbsp;&nbsp;<span class="fc-v">name</span><span class="fc-m">=</span><span class="fc-s">"Pranjal Ambwani"</span><span class="fc-n">,</span></span>
           <span class="fc-l">&nbsp;&nbsp;<span class="fc-v">focus</span><span class="fc-m">=</span><span class="fc-s">["GenAI","RAG","LLMs"]</span><span class="fc-n">,</span></span>
-          <span class="fc-l">&nbsp;&nbsp;<span class="fc-v">degree</span><span class="fc-m">=</span><span class="fc-s">"M.Tech AI @ NMIMS"</span><span class="fc-n">,</span></span>
           <span class="fc-l">&nbsp;&nbsp;<span class="fc-v">open_to_work</span><span class="fc-m">=</span><span class="fc-k">True</span></span>
           <span class="fc-l"><span class="fc-n">)</span></span>
-          <span class="fc-l">&nbsp;</span>
-          <span class="fc-l"><span class="fc-c"># Output</span></span>
-          <span class="fc-l"><span class="fc-k">print</span><span class="fc-n">(</span><span class="fc-s">"Building the future"</span><span class="fc-n">)</span></span>
           <span class="fc-l"><span class="fc-cursor"></span></span>
         </div>
         <div class="fc-badge">Status: Open to Opportunities</div>
@@ -433,17 +559,17 @@ footer a{color:var(--p1);text-decoration:none;}
         <div class="tmark"></div>
         <div class="tcard">
           <div class="exp-top">
-            <div><div class="exp-role">AI / ML Intern — Digital Transformation (HR Analytics)</div><div class="exp-co">Ernst &amp; Young (EY)</div></div>
+            <div><div class="exp-role">AI / ML Intern — Digital Transformation</div><div class="exp-co">Ernst &amp; Young (EY) · HR Analytics &amp; Salary Intelligence</div></div>
             <div class="exp-date">May – Aug 2025 · Remote / Hyderabad</div>
           </div>
           <ul class="exp-list">
-            <li>Worked on AI-driven analytics and automation solutions as part of the Digital Transformation in HR initiative</li>
-            <li>Developed <strong style="color:var(--text)">predictive models for sales forecasting and trend analysis</strong> using Python and Scikit-learn</li>
-            <li>Built interactive <strong style="color:var(--text)">Streamlit dashboards</strong> to support data-driven decision-making across business teams</li>
-            <li>Performed data preprocessing, feature engineering, and model evaluation to improve forecast reliability</li>
-            <li>Collaborated with stakeholders to understand requirements and deliver analytical solutions</li>
+            <li>Shipped an <strong style="color:var(--text)">AI-Powered Salary Prediction &amp; Analytics platform on Oracle Cloud</strong> — trained XGBoost and Linear Regression models on 6 features (job title, experience, location, education, industry, certifications) to predict annual salaries with RMSE and R² evaluation</li>
+            <li>Built a <strong style="color:var(--text)">full OCI-native architecture</strong>: model training in OCI Data Science (JupyterLab), FastAPI/Flask backend on OCI Compute, data in Oracle Autonomous DB, deployed via OCI API Gateway</li>
+            <li>Designed <strong style="color:var(--text)">real-time salary analytics dashboards</strong> — trend analysis by region &amp; industry, salary percentiles, peer benchmarking, and time-based progression graphs; built on Streamlit and Oracle Visual Builder</li>
+            <li>Ran end-to-end <strong style="color:var(--text)">sales forecasting pipelines</strong> — preprocessing raw business data, feature engineering, Linear Regression modelling, and evaluation using MAE, RMSE, R²</li>
+            <li>Presented insights to stakeholders and cut manual reporting time by surfacing role-vs-location salary gaps through feature importance visualisation</li>
           </ul>
-          <div class="exp-tags"><span class="etag">Python</span><span class="etag">Scikit-learn</span><span class="etag">Streamlit</span><span class="etag">Predictive Analytics</span><span class="etag">Feature Engineering</span></div>
+          <div class="exp-tags"><span class="etag">OCI Data Science</span><span class="etag">XGBoost</span><span class="etag">Oracle Autonomous DB</span><span class="etag">FastAPI</span><span class="etag">Streamlit</span><span class="etag">Python</span><span class="etag">Scikit-learn</span><span class="etag">Predictive Analytics</span></div>
         </div>
       </div>
       <div class="titem reveal reveal-d">
@@ -454,13 +580,13 @@ footer a{color:var(--p1);text-decoration:none;}
             <div class="exp-date">Dec 2024 – Apr 2025 · Ahmedabad</div>
           </div>
           <ul class="exp-list">
-            <li>Built <strong style="color:var(--text)">GenAI-powered document intelligence and NLP automation systems</strong> for enterprise use cases</li>
-            <li>Designed and implemented <strong style="color:var(--text)">RAG pipelines using HuggingFace and Pinecone</strong> for efficient information retrieval</li>
-            <li>Developed <strong style="color:var(--text)">Streamlit applications</strong> to enable interaction with large document datasets</li>
-            <li>Performed PDF preprocessing, text extraction, and embedding generation to enhance retrieval accuracy</li>
-            <li>Integrated <strong style="color:var(--text)">MongoDB and PostgreSQL</strong> for data storage; contributed to end-to-end AI application deployment</li>
+            <li>Built a production <strong style="color:var(--text)">Tender Bot</strong> — scraped live government tenders, chunked and embedded documents into Pinecone, then wired up a HuggingFace LLM so clients could ask plain-English questions and get cited answers instantly</li>
+            <li>Designed end-to-end <strong style="color:var(--text)">RAG pipelines for a Legal Help Desk AI</strong> — LangChain orchestration, PDF extraction, embedding generation, and Pinecone retrieval for document Q&amp;A at enterprise scale</li>
+            <li>Built a <strong style="color:var(--text)">Gujarati news article extractor</strong> from scratch — BeautifulSoup scraping, OCR for multilingual text, feeding clean structured data into downstream NLP workflows</li>
+            <li>Shipped <strong style="color:var(--text)">interactive Seaborn analytics dashboards</strong> for business stakeholders; backed by MongoDB and PostgreSQL for persistent, fast-access storage</li>
+            <li>Owned the full deployment cycle — containerisation, environment configs, and keeping Streamlit apps live for client demos without dropping a beat</li>
           </ul>
-          <div class="exp-tags"><span class="etag">RAG</span><span class="etag">HuggingFace</span><span class="etag">Pinecone</span><span class="etag">LangChain</span><span class="etag">Streamlit</span><span class="etag">MongoDB</span><span class="etag">PostgreSQL</span></div>
+          <div class="exp-tags"><span class="etag">RAG</span><span class="etag">HuggingFace</span><span class="etag">Pinecone</span><span class="etag">LangChain</span><span class="etag">Streamlit</span><span class="etag">MongoDB</span><span class="etag">PostgreSQL</span><span class="etag">BeautifulSoup</span></div>
         </div>
       </div>
     </div>
@@ -700,28 +826,24 @@ const ro=new IntersectionObserver(entries=>{
 },{threshold:0.07});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-/* ── COUNTERS — FIXED: only fire once ── */
-let countersFired=false;
-const co=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting&&!countersFired){
-      countersFired=true;
-      document.querySelectorAll('.stat-num[data-target]').forEach(el=>{
-        const target=+el.dataset.target,dur=1200,start=performance.now();
-        const tick=now=>{
-          const p=Math.min((now-start)/dur,1),ease=1-Math.pow(1-p,3);
-          el.textContent=Math.round(ease*target);
-          if(p<1)requestAnimationFrame(tick);
-          else el.textContent=target;
-        };
-        requestAnimationFrame(tick);
-      });
-      co.disconnect();
+/* ── COUNTERS — always fire after 600ms on load ── */
+function runCounters(){
+  document.querySelectorAll('.stat-num[data-target]').forEach(el=>{
+    const target=+el.dataset.target;
+    let start=null;
+    const dur=1600;
+    function tick(ts){
+      if(!start)start=ts;
+      const p=Math.min((ts-start)/dur,1);
+      const ease=1-Math.pow(1-p,4);
+      el.textContent=Math.round(ease*target);
+      if(p<1)requestAnimationFrame(tick);
+      else el.textContent=target;
     }
+    requestAnimationFrame(tick);
   });
-},{threshold:0.4});
-const statsEl=document.querySelector('.stats-row');
-if(statsEl)co.observe(statsEl);
+}
+
 
 /* ── ACTIVE NAV ── */
 const navAs=document.querySelectorAll('.nav-links a');
@@ -781,6 +903,36 @@ async function loadGH(){
   }
 }
 loadGH();
+
+/* ── ORBIT ICONS JS ── */
+(function(){
+  const ringDefs=[
+    {sel:".orb-r1",spd:0.009,r:70,bases:[0]},
+    {sel:".orb-r2",spd:-0.006,r:120,bases:[60,240]},
+    {sel:".orb-r3",spd:0.004,r:170,bases:[30,150,270]}
+  ];
+  const rings=ringDefs.map(d=>({
+    icons:Array.from(document.querySelectorAll(d.sel+" .orb-icon")),
+    spd:d.spd,r:d.r,
+    bases:d.bases.map(b=>b*Math.PI/180),
+    angle:0
+  }));
+  function animate(){
+    rings.forEach(ring=>{
+      ring.angle+=ring.spd;
+      ring.icons.forEach((ic,i)=>{
+        const a=ring.angle+ring.bases[i];
+        const x=Math.cos(a)*ring.r-17;
+        const y=Math.sin(a)*ring.r-17;
+        ic.style.left="50%";
+        ic.style.top="50%";
+        ic.style.transform="translate("+x+"px,"+y+"px)";
+      });
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
 
 /* ── EMAIL FORM — opens compose window ── */
 document.getElementById('send-btn').addEventListener('click',()=>{
@@ -859,6 +1011,69 @@ function sendChat(){
     chatBusy=false;chatSnd.disabled=false;chatInp.focus();
   },450+Math.random()*350);
 }
+
+/* ══ INTRO LOADER JS ══ */
+(function(){
+  const loader=document.getElementById('intro-loader');
+  const bar=document.getElementById('ldr-bar');
+  const pct=document.getElementById('ldr-pct');
+  const txt=document.getElementById('ldr-text');
+
+  const steps=[
+    {at:0,   msg:'Initializing AI engine...'},
+    {at:18,  msg:'Loading neural networks...'},
+    {at:36,  msg:'Mounting RAG pipelines...'},
+    {at:54,  msg:'Connecting vector store...'},
+    {at:72,  msg:'Compiling LLM modules...'},
+    {at:88,  msg:'Rendering portfolio...'},
+    {at:100, msg:'Welcome — Pranjal Ambwani'}
+  ];
+
+  let current=0;
+  let start=null;
+  const TOTAL_MS=3200;
+
+  function setMsg(msg){
+    txt.innerHTML=msg+'<span class="cursor"></span>';
+  }
+
+  function tick(ts){
+    if(!start)start=ts;
+    const elapsed=ts-start;
+    const progress=Math.min(elapsed/TOTAL_MS,1);
+    const eased=progress<0.5
+      ? 4*progress*progress*progress
+      : 1-Math.pow(-2*progress+2,3)/2;
+    const p=Math.round(eased*100);
+
+    bar.style.width=p+'%';
+    pct.textContent=p+'%';
+
+    // update message at thresholds
+    for(let i=steps.length-1;i>=0;i--){
+      if(p>=steps[i].at){
+        if(current!==i){current=i;setMsg(steps[i].msg);}
+        break;
+      }
+    }
+
+    if(progress<1){
+      requestAnimationFrame(tick);
+    } else {
+      // hold "Welcome" for 400ms then exit
+      setTimeout(()=>{
+        loader.classList.add('hide');
+        document.body.classList.remove('loading');
+        // fire counters now that portfolio is visible
+        setTimeout(runCounters,300);
+        setTimeout(()=>{loader.style.display='none';},950);
+      },400);
+    }
+  }
+
+  // start after a brief paint delay
+  setTimeout(()=>requestAnimationFrame(tick), 120);
+})();
 </script>
 </body>
 </html>
